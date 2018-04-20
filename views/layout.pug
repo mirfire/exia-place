@@ -86,8 +86,8 @@ html(lang="en")
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="https://www.dynastic.co", style="margin-right: -5px")
-            img(src="https://dynastic.co/img/nbicon.png", height="20")
+          a.navbar-brand(href="https://exia.cesi.fr/", style="margin-right: -5px")
+            img(src="https://exia.cesi.fr/wp-content/themes/eice/assets/images/logo-header.png", height="20")
           a.navbar-brand(href="/")
             | #{config.siteName}
             if config.debug
@@ -95,19 +95,8 @@ html(lang="en")
         .collapse.navbar-collapse#navbar-collapse
           ul.nav.navbar-nav
             +getViewExtensions("nav_left")
-            +renderNavItem("Home", "/", "home")
+            +renderNavItem("Accueil", "/", "home")
             +getViewExtensions("nav_inside")
-            li.dropdown
-              a.dropdown-toggle(data-toggle="dropdown", href="#", role="button", aria-haspopup="true", aria-expanded="false")
-                i.fa.fa-users.fa-fw
-                .
-                  Community #[span.caret]
-              ul.dropdown-menu
-                +renderNavItem("Official Subreddit", "https://www.reddit.com/r/place20", "reddit-alien")
-                +renderNavItem("Chat on Discord", "https://discord.gg/CgC8FTg", "comments")
-                +renderNavItem("Timelapses", "https://timelapse.canvas.place", "clock-o")
-                +renderNavItem("Source Code", "https://www.github.com/dynastic/place", "github")
-            +renderNavItem("Donate", "https://www.paypal.me/AppleBetasPay", "money")
             if user && userMod
               +renderNavItem(userAdmin ? "Admin" : "Moderator", "/admin", "gavel")
             +getViewExtensions("nav_right")
@@ -120,11 +109,11 @@ html(lang="en")
                   .
                     #[span(name="user-dropdown") #{user.usernameSet ? user.name : ""}] #[span.caret]
                 ul.dropdown-menu
-                  +renderNavItem("Your Profile", "/account", "user-circle-o")
-                  +renderNavItem("What's New", "javascript:void(0)", "list")
-                  +renderNavItem("Rules", "/guidelines", "handshake-o")
+                  +renderNavItem("Profil", "/account", "user-circle-o")
+                  +renderNavItem("Nouveautés", "javascript:void(0)", "list")
+                  +renderNavItem("Règles", "/guidelines", "handshake-o")
                   li.divider(role="separator")
-                  +renderNavItem("Sign Out", `/signout?redirectURL=${redirectURLPart}`, "sign-out")
+                  +renderNavItem("Déconnexion", `/signout?redirectURL=${redirectURLPart}`, "sign-out")
             else
               li#nav-auth-link
                 a.btn.btn-sm.btn-nav-auth-link(href=(path == "/" ? "javascript:void(0)" : `/#signup&redirectURL=${redirectURLPart}`), data-place-trigger="openAuthDialog") Get Started
